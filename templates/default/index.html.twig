@@ -11,7 +11,7 @@
 <div class="example-wrapper">
     <h1>Hello {{ controller_name }}! ✅</h1>
 
-    <a href="?order[Name]=ASC">Order ASC</a> - <a href="?order[Name]=DESC">Order DESC</a>
+    <a href="?order[Name]=ASC">Order ASC</a> - <a href="?order[Name]=DESC">Order DESC</a> - <a href="{{ url }}">Reset order</a>
 
     <ul>
         {% for book in books %}
