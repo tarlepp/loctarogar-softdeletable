@@ -7,6 +7,7 @@ use App\Repository\BookRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -15,15 +16,18 @@ class DefaultController extends AbstractController
     /**
      * @Route("/", name="default")
      *
+     * @param Request        $request
      * @param BookRepository $bookRepository
      *
      * @return Response
      */
-    public function index(BookRepository $bookRepository): Response
+    public function index(Request $request, BookRepository $bookRepository): Response
     {
+        $order = $request->get('order');
+
         return $this->render('default/index.html.twig', [
             'controller_name' => 'DefaultController',
-            'books' => $bookRepository->findAll(),
+            'books' => $bookRepository->findAllOrdered($order),
         ]);
     }
 

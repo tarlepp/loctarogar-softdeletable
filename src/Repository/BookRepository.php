@@ -20,6 +20,16 @@ class BookRepository extends ServiceEntityRepository
     }
 
     /**
+     * @param array|null $order
+     *
+     * @return array
+     */
+    public function findAllOrdered(?array $order): array
+    {
+        return $this->findBy([], $order);
+    }
+
+    /**
      * @param \App\Entity\Book $setName
      *
      * @throws \Doctrine\ORM\ORMException

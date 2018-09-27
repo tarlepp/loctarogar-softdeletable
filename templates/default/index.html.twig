@@ -11,6 +11,7 @@
 <div class="example-wrapper">
     <h1>Hello {{ controller_name }}! ✅</h1>
 
+    <a href="?order[Name]=ASC">Order ASC</a> - <a href="?order[Name]=DESC">Order DESC</a>
 
     <ul>
         {% for book in books %}
@@ -18,6 +19,6 @@
         {% endfor %}
     </ul>
 
-    <a href="create">Create new book</a></li>
+    <a href="create">Create new book</a>
 </div>
 {% endblock %}
